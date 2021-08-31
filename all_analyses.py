@@ -1,9 +1,7 @@
 import os
-from numpy.core.fromnumeric import product
-from numpy.core.numeric import full
 import pandas as pd
 
-# Merge all file into one
+# Merge all files into one
 files = [x for x in os.listdir('./SalesAnalysis/Sales_Data')]
 
 full_data = pd.DataFrame()
