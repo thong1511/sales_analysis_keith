@@ -23,6 +23,7 @@ full_data['Quantity Ordered'] = pd.to_numeric(full_data['Quantity Ordered'])
 
 
 ### Q1: Best month for sales?
+
 full_data['sales'] = full_data['Price Each']*full_data['Quantity Ordered']
 result_q1 = full_data.groupby('month').sum()['sales']
 
@@ -34,6 +35,7 @@ plt.show()
 
 
 ### Q2: Best city for sales?
+
 full_data['city'] = full_data['Purchase Address'].apply(lambda x: x.split(',')[1].lstrip() + ' (' + x.split(',')[2].split(' ')[1] + ')')
 result_q2 = full_data.groupby('city').sum()
 resultq2_list = [value for value in result_q2['sales']]
@@ -70,6 +72,7 @@ plt.show()
 
 
 ### Q4: What products are most often sold together?
+
 # Create new df for Q4
 df_q3 = pd.DataFrame()
 df_q3['Order ID'] = full_data['Order ID']
@@ -96,6 +99,7 @@ for key, value in count.most_common(5):
 
 
 ### Q5: Product sold the most? Why is that?
+
 most_sold_product = full_data.groupby('Product').sum()['Quantity Ordered'].max()
 
 # Prepare for graph
