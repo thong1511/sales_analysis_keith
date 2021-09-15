@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Merge all files into one
 files = [x for x in os.listdir('./SalesAnalysis/Sales_Data')]
@@ -25,7 +26,6 @@ full_data['Quantity Ordered'] = pd.to_numeric(full_data['Quantity Ordered'])
 full_data['sales'] = full_data['Price Each']*full_data['Quantity Ordered']
 result_q1 = full_data.groupby('month').sum()['sales']
 
-import matplotlib.pyplot as plt
 months = range(1, 13)
 plt.bar(months, result_q1)
 plt.xticks(months)
