@@ -74,14 +74,14 @@ plt.show()
 ### Q4: What products are most often sold together?
 
 # Create new df for Q4
-df_q3 = pd.DataFrame()
-df_q3['Order ID'] = full_data['Order ID']
-df_q3['Product'] = full_data['Product']
+df_q4 = pd.DataFrame()
+df_q4['Order ID'] = full_data['Order ID']
+df_q4['Product'] = full_data['Product']
 
 # Remove duplicates
-df_q3 = df_q3[df_q3['Order ID'].duplicated(keep=False)]
-df_q3['Grouped'] = df_q3.groupby('Order ID')['Product'].transform(lambda x: ','.join(x))
-df_q3 = df_q3[['Order ID', 'Grouped']].drop_duplicates()
+df_q4 = df_q4[df_q4['Order ID'].duplicated(keep=False)]
+df_q4['Grouped'] = df_q4.groupby('Order ID')['Product'].transform(lambda x: ','.join(x))
+df_q4 = df_q4[['Order ID', 'Grouped']].drop_duplicates()
 
 # Count quantity of products in pairs
 from itertools import combinations
