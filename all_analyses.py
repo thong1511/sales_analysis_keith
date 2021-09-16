@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Merge all files into one
-files = [x for x in os.listdir('./SalesAnalysis/Sales_Data')]
+files = os.listdir('./SalesAnalysis/Sales_Data')
 
 full_data = pd.DataFrame()
 for x in files:
